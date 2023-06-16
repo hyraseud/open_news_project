@@ -30,7 +30,7 @@ const Nav = () => {
     return (
         <nav className='navbar'>
             <h2>OpenNews</h2>
-
+            <button onClick={() => navigate('/breaking-news')} className='navbar-button'>Breaking News</button>
             <div className='dropdown-container'
                  onMouseEnter={() => setShowDropdown(true)}
                  onMouseLeave={() => setShowDropdown(false)}
@@ -48,10 +48,7 @@ const Nav = () => {
                     </div>
                 )}
             </div>
-
             <button onClick={() => navigate('/media')} className='navbar-button'>Media Page</button>
-            <button onClick={() => navigate('/breaking-news')} className='navbar-button'>Breaking News</button>
-
             <input type="search" placeholder="Search Topic" className='navbar-search' />
 
             <div className='navbarRight'>
