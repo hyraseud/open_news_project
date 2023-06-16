@@ -1,5 +1,7 @@
-# opensourcenews
+# opennews
 news website idea 
+https://github.com/hyraseud/open_news_project/assets/54275890/b7ec609a-7dc7-42db-857c-e5ad63f942e6
+
 
 # npm-start
 
