@@ -1,6 +1,6 @@
 # opennews
 news website idea 
-https://github.com/hyraseud/open_news_project/assets/54275890/b7ec609a-7dc7-42db-857c-e5ad63f942e6
+<img width="1432" alt="Screen Shot 2023-06-16 at 12 37 53 PM" src="https://github.com/hyraseud/open_news_project/assets/54275890/c5c1080e-c347-4513-a261-2c571043fedb">
 
 
 # npm-start
