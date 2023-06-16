@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
     const navigate = useNavigate();
 
-    const loginUser = () => {
-        fetch("http://localhost:4000/api/login", {
+    const signUp = () => {
+        fetch("http://localhost:3000/api/register", {
             method: "POST",
             body: JSON.stringify({
                 email,
                 password,
+                username,
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -22,9 +25,8 @@ const Login = () => {
                 if (data.error_message) {
                     alert(data.error_message);
                 } else {
-                    alert(data.message);
-                    navigate("/dashboard");
-                    localStorage.setItem("_id", data.id);
+                    alert("Account created successfully!");
+                    navigate("/");
                 }
             })
             .catch((err) => console.error(err));
@@ -32,15 +34,24 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        loginUser();
+        signUp();
         setEmail("");
+        setUsername("");
         setPassword("");
     };
-
     return (
-        <main className='login'>
-            <h1 className='loginTitle'>Log into your account</h1>
-            <form className='loginForm' onSubmit={handleSubmit}>
+        <main className='register'>
+            <h1 className='registerTitle'>Create a Reader Account</h1>
+            <form className='registerForm' onSubmit={handleSubmit}>
+                <label htmlFor='username'>Username</label>
+                <input
+                    type='text'
+                    name='username'
+                    id='username'
+                    required
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
                 <label htmlFor='email'>Email Address</label>
                 <input
                     type='text'
@@ -59,13 +70,13 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className='loginBtn'>SIGN IN</button>
+                <button className='registerBtn'>REGISTER</button>
                 <p>
-                    Don't have an account? <Link to='/register'>Create one</Link>
+                    Have an account? <Link to='/'>Sign in</Link>
                 </p>
             </form>
         </main>
     );
 };
 
-export default Login;
+export default Register;

@@ -1,9 +1,9 @@
 const express = require("express");
 const { Novu } = require("@novu/node");
-const novu = new Novu("<YOUR_API_KEY>");
+const novu = new Novu("82a238a411d2ebb8b0bd64907d901b7d");
 const cors = require("cors");
 const app = express();
-const PORT = 4000;
+const PORT = 3002;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -13,7 +13,7 @@ const users = [];
 const threadList = [];
 
 const generateID = () => Math.random().toString(36).substring(2, 10);
-
+app.use(cors());
 app.post("/api/login", (req, res) => {
     const { email, password } = req.body;
     let result = users.filter(
@@ -79,6 +79,31 @@ app.post("/api/create/thread", async (req, res) => {
         message: "Thread created successfully!",
         threads: threadList,
     });
+});
+
+app.get("/api/all/news", async (req, res) => {
+    try {
+        const apiKey = "df7de36236384981a56a4af2e9de3a72";
+        const endpoint = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+
+        const response = await fetch(endpoint);
+        const data = await response.json();
+
+        if (data.status === "ok") {
+            res.json({
+                news: data.articles,
+            });
+        } else {
+            res.json({
+                error_message: "Failed to fetch news articles",
+            });
+        }
+    } catch (error) {
+        console.error(error);
+        res.json({
+            error_message: "An error occurred while fetching news articles",
+        });
+    }
 });
 
 app.get("/api/all/threads", (req, res) => {

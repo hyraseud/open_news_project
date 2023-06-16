@@ -9,7 +9,7 @@ const Replies = () => {
     const { id } = useParams();
 
     const addReply = () => {
-        fetch("http://localhost:4000/api/create/reply", {
+        fetch("http://localhost:3000/api/create/reply", {
             method: "POST",
             body: JSON.stringify({
                 id,
