@@ -10,20 +10,6 @@ npm install
 npm start
 ```
 
-## Start server side
-
-```
-$ cd server
-$ npm-start
-```
-
-## Start client side
-
-```
-$ cd client
-$ npm-start
-```
-
 
 Also memory usage for long running processes might be a bit lower since you do not need to spawn an additional node process to start npm
 
