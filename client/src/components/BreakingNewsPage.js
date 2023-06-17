@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Nav from "./Nav";
 import NewsArticle from "./NewsArticle";
 
 const BreakingNewsPage = () => {
@@ -6,7 +7,7 @@ const BreakingNewsPage = () => {
 
     useEffect(() => {
         const apiKey = "df7de36236384981a56a4af2e9de3a72";
-        const endpoint = `https://newsapi.org/v2/top-headlines?country=us&category=breaking-news&apiKey=${apiKey}`;
+        const endpoint = `https://newsapi.org/v2/everything?q=breaking-news&sortBy=publishedAt&apiKey=${apiKey}`;
 
         fetch(endpoint)
             .then((res) => res.json())
@@ -21,12 +22,14 @@ const BreakingNewsPage = () => {
     }, []);
 
     return (
-        <div className="breaking-news-page">
-            <h1>Breaking News</h1>
-            <div className="news-container">
-                {breakingNewsList.map((article) => (
-                    <NewsArticle article={article} key={article.title} />
-                ))}
+        <div>
+            <Nav />
+            <div className="breaking-news-page">
+                <div className="news-container">
+                    {breakingNewsList.map((article) => (
+                        <NewsArticle article={article} key={article.title} />
+                    ))}
+                </div>
             </div>
         </div>
     );
