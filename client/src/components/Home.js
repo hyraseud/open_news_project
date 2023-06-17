@@ -9,7 +9,7 @@ const Home = () => {
 
     useEffect(() => {
         const apiKey = "df7de36236384981a56a4af2e9de3a72";
-        const endpoint = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+        const endpoint = `https://newsapi.org/v2/top-headlines?language=en&apiKey=${apiKey}`;
 
         fetch(endpoint)
             .then((res) => res.json())

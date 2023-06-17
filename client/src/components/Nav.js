@@ -26,11 +26,13 @@ const Nav = () => {
     const openSelect = () => {
         if (selectRef.current) selectRef.current.click();
     };
-
+    const handleBreakingNewsClick = () => {
+        navigate("/breaking-news");
+    };
     return (
         <nav className='navbar'>
             <h2>OpenNews</h2>
-            <button onClick={() => navigate('/breaking-news')} className='navbar-button'>Breaking News</button>
+            <button onClick={handleBreakingNewsClick} className='navbar-button'>Breaking News</button>
             <div className='dropdown-container'
                  onMouseEnter={() => setShowDropdown(true)}
                  onMouseLeave={() => setShowDropdown(false)}

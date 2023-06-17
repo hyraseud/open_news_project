@@ -14,6 +14,8 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='/dashboard' element={<Home />} />
             <Route path='/:id/replies' element={<Replies />} />
+              <Route exact path="/" component={Home} />
+              <Route path="/breaking-news" component={BreakingNewsPage} />
           </Routes>
         </BrowserRouter>
       </div>
