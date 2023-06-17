@@ -4,7 +4,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Replies from "./components/Replies";
-
+import BreakingNewsPage from "./components/BreakingNewsPage";
 const App = () => {
   return (
       <div>
